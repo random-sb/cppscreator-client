@@ -1,0 +1,63 @@
+<title>CPPS Code</title>
+<link href="https://db.onlinewebfonts.com/c/9f62e2b9b9235acb5512c7f03cf0f792?family=Burbank+Small" rel="stylesheet" type="text/css"/>
+<body>
+  <p>Please type in the CPPS code/ID that you want to visit:</p>
+<div id="prompt">
+
+  <form>
+    <label>ID:</label>
+    <input type="text" id="cppscode"><br>
+  </form>
+
+  <button id="confirm-button" onClick="confirmNotification()">
+    Visit CPPS
+  </button>
+</div>
+</body>
+
+
+
+
+<style>
+@import url(https://db.onlinewebfonts.com/c/9f62e2b9b9235acb5512c7f03cf0f792?family=Burbank+Small);
+@font-face {font-family: "Burbank Small"; src: url("https://db.onlinewebfonts.com/t/9f62e2b9b9235acb5512c7f03cf0f792.eot"); src: url("https://db.onlinewebfonts.com/t/9f62e2b9b9235acb5512c7f03cf0f792.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/9f62e2b9b9235acb5512c7f03cf0f792.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/9f62e2b9b9235acb5512c7f03cf0f792.woff") format("woff"), url("https://db.onlinewebfonts.com/t/9f62e2b9b9235acb5512c7f03cf0f792.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/9f62e2b9b9235acb5512c7f03cf0f792.svg#Burbank Small") format("svg"); }
+button { 
+  font-family:"Burbank Small";
+  }
+label { 
+  font-family:"Burbank Small";
+  }
+p { 
+  font-family:"Burbank Small";
+  }
+@media (prefers-color-scheme: dark) {
+  body { background:  #333; color: white; }
+  #notification { background:  #333; color: white; }
+  object  { background:  #333; color: white; }
+}
+@media (prefers-color-scheme: light) {
+  body { background:  #ffffff; color: black; }
+  object  { background:  #ffffff; color: black; }
+  #notification { background:  #ffffff; color: black; }
+}
+</style>
+
+
+
+
+<script>
+const {ipcRenderer} = require('electron');
+//const prompt = document.getElementById('prompt');
+//const confirmButton = document.getElementById('confirm-button');
+const code = document.getElementById('cppscode');
+
+function getEmbedURL(code) {
+    return "https://play.cppscreator.xyz/embed/" + code;
+}
+
+function confirmNotification() {
+  console.log("fired");
+  ipcRenderer.sendSync('cpps_code', getEmbedURL(code.value))
+}
+</script>
+
