@@ -1,13 +1,13 @@
 {
    "name": "cppscreatorclient",
-   "version": "1.2.1",
+   "version": "1.2.2",
    "description": "CPPS Creator Client",
    "productName": "CPPS Creator",
    "main": "main.js",
    "scripts": {
       "start": "electron ."
    },
-   "repository": "https://github.com/AllinolCP/Coastal-Freeze",
+   "repository": "https://github.com/random-sb/cppscreator-client",
    "keywords": [
       "coastal",
       "freeze",
@@ -25,8 +25,7 @@
       "appId": "net.cppscreator",
       "mac": {
          "asar": false,
-         "category": "public.app-category.games",
-         "icon": "icons/favicon.icns"
+         "category": "public.app-category.games"
       },
       "linux": {
          "asar": false,
@@ -45,8 +44,7 @@
                   "ia32"
                ]
             }
-         ],
-         "icon": "icons/favicon.png"
+         ]
       },
       "win": {
          "asar": false,
@@ -58,21 +56,17 @@
                   "ia32"
                ]
             }
-         ],
-         "icon": "icons/favicon.ico"
+         ]
       }
    },
    "author": "CPPS Creator (https://cppscreator.xyz)",
    "license": "CC0-1.0",
-   "peerDependencies": {
-      "register-scheme": "github:devsnek/node-register-scheme"
-   },
    "devDependencies": {
-      "discord-rpc": "^3.1.4",
       "electron": "^8.1.1",
       "electron-builder": "^22.9.1"
    },
    "dependencies": {
-      "electron-updater": "^4.3.5"
+      "electron-updater": "^4.3.2",
+      "discord-rpc": "^3.1.4"
    }
 }
