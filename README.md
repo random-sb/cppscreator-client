@@ -1,4 +1,1 @@
-# Coastal Freeze
-
-
-Official Coastal Freeze Client
+# CPPS Creator CLient thing
