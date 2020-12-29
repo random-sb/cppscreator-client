@@ -9,10 +9,10 @@
    },
    "repository": "https://github.com/random-sb/cppscreator-client",
    "keywords": [
-      "coastal",
-      "freeze",
+      "cppscreator",
+      "cpps",
       "club penguin",
-      "cpr"
+      "club penguin private server"
    ],
    "build": {
       "publish": [
