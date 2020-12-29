@@ -104,7 +104,7 @@ function activateRPC() {
   const startTimestamp = new Date();
   rpc.on('ready', () => {
     rpc.setActivity({
-      details: `cppscreator.xyz Desktop Client`, 
+      details: `www.cppscreator.xyz`, 
       state: `Browsing CPPSes`, 
       startTimestamp, 
       largeImageKey: `main-logo`
@@ -225,23 +225,18 @@ function darkMode() {
 }
 
 
-
 ipcMain.on('cpps_code', (event, cppsCode) => {
     win.loadURL("https://play.cppscreator.xyz/embed/" + cppsCode);
     pro.close();
     pro = null;
     const startTimestamp = new Date();
     rpc.setActivity({
-        details: `cppscreator.xyz Desktop Client`, 
+        details: `www.cppscreator.xyz`, 
         state: `Playing CPPS ID: ` + cppsCode, 
         startTimestamp, 
         largeImageKey: `main-logo`
     });
 });
-
-function getEmbedURL(code) {
-    return "https://play.cppscreator.xyz/embed/" + code;
-}
 
 // end of menubar
 
