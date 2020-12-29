@@ -9,6 +9,7 @@ const {
 } = require('electron')
 
 const DiscordRPC = require('discord-rpc');
+let rpc
 
 /*const {
     autoUpdater
@@ -99,7 +100,7 @@ Created by Random with much code provided by Allinol for use with Coastal Freeze
 function activateRPC() { 
   const clientId = '793529837062193153'; 
   DiscordRPC.register(clientId);
-  const rpc = new DiscordRPC.Client({ transport: 'ipc' }); 
+  rpc = new DiscordRPC.Client({ transport: 'ipc' }); 
   const startTimestamp = new Date();
   rpc.on('ready', () => {
     rpc.setActivity({
@@ -235,7 +236,7 @@ ipcMain.on('cpps_code', (event, cppsCode) => {
         state: `Playing CPPS ID: ` + cppsCode, 
         startTimestamp, 
         largeImageKey: `main-logo`
-      });
+    });
 });
 
 function getEmbedURL(code) {
