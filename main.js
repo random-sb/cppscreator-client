@@ -8,7 +8,7 @@ const {
     nativeTheme
 } = require('electron')
 
-//const DiscordRPC = require('discord-rpc');
+const DiscordRPC = require('discord-rpc');
 
 /*const {
     autoUpdater
@@ -66,7 +66,7 @@ function createWindow() {
         nativeTheme.themeSource = theme;
         win.webContents.audioMuted = muted;
     });*/
-    //activateRPC();
+    activateRPC();
 	
     win.loadURL('https://www.cppscreator.xyz/');
     //autoUpdater.checkForUpdatesAndNotify();
@@ -95,22 +95,22 @@ function createPrompt() {
 const aboutMessage = `CPPS Creator Client v${app.getVersion()}
 Created by Random with much code provided by Allinol for use with Coastal Freeze.`;
 
-/*
+
 function activateRPC() { 
-  const clientId = '792072685790167070'; 
+  const clientId = '793529837062193153'; 
   DiscordRPC.register(clientId);
   const rpc = new DiscordRPC.Client({ transport: 'ipc' }); 
   const startTimestamp = new Date();
   rpc.on('ready', () => {
     rpc.setActivity({
-      details: `cppscreator.xyz`, 
-      state: `Desktop Client`, 
+      details: `cppscreator.xyz Desktop Client`, 
+      state: `Browsing CPPSes`, 
       startTimestamp, 
       largeImageKey: `main-logo`
     });
   });
   rpc.login({ clientId }).catch();
-}*/
+}
 
 function makeMenu() { // credits to random
     fsmenu = new Menu();
@@ -225,12 +225,22 @@ function darkMode() {
 
 
 
-ipcMain.on('cpps_code', (event, cppsURL) => {
-    win.loadURL(cppsURL);
+ipcMain.on('cpps_code', (event, cppsCode) => {
+    win.loadURL("https://play.cppscreator.xyz/embed/" + cppsCode);
     pro.close();
     pro = null;
+    const startTimestamp = new Date();
+    rpc.setActivity({
+        details: `cppscreator.xyz Desktop Client`, 
+        state: `Playing CPPS ID: ` + cppsCode, 
+        startTimestamp, 
+        largeImageKey: `main-logo`
+      });
 });
 
+function getEmbedURL(code) {
+    return "https://play.cppscreator.xyz/embed/" + code;
+}
 
 // end of menubar
 

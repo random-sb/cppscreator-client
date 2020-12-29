@@ -43,13 +43,8 @@ p {
 const {ipcRenderer} = require('electron');
 const code = document.getElementById('cppscode');
 
-function getEmbedURL(code) {
-    return "https://play.cppscreator.xyz/embed/" + code;
-}
-
 function confirmNotification() {
-  console.log("fired");
-  ipcRenderer.sendSync('cpps_code', getEmbedURL(code.value))
+  ipcRenderer.sendSync('cpps_code', code.value)
 }
 </script>
 
