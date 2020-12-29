@@ -11,9 +11,9 @@ const {
 const DiscordRPC = require('discord-rpc');
 let rpc
 
-/*const {
+const {
     autoUpdater
-} = require('electron-updater');*/
+} = require('electron-updater');
 
 const path = require('path')
 
@@ -61,16 +61,16 @@ function createWindow() {
     height: 840
     });
     makeMenu();
-    /*ipcMain.on('load:data', (event, mute, theme) => {
+    ipcMain.on('load:data', (event, mute, theme) => {
         muted = (mute == 'true');
 		console.log(muted, typeof(muted))
         nativeTheme.themeSource = theme;
         win.webContents.audioMuted = muted;
-    });*/
+    });
     activateRPC();
 	
     win.loadURL('https://www.cppscreator.xyz/');
-    //autoUpdater.checkForUpdatesAndNotify();
+    autoUpdater.checkForUpdatesAndNotify();
     Menu.setApplicationMenu(fsmenu);
 }
 
@@ -94,7 +94,8 @@ function createPrompt() {
 // start of menubar part
 
 const aboutMessage = `CPPS Creator Client v${app.getVersion()}
-Created by Random with much code provided by Allinol for use with Coastal Freeze.`;
+Created by Random with much code provided by Allinol for use with Coastal Freeze.
+The purpose of CPPSCreator......`;
 
 
 function activateRPC() { 
@@ -117,14 +118,14 @@ function makeMenu() { // credits to random
     fsmenu = new Menu();
     if (process.platform == 'darwin') {
         fsmenu.append(new MenuItem({
-            label: "Coastal Freeze Client",
+            label: "CPPSCreator Client",
             submenu: [{
                     label: 'About',
                     click: () => {
                         dialog.showMessageBox({
                             type: "info",
                             buttons: ["Ok"],
-                            title: "About Coastal Freeze",
+                            title: "About CPPSCreator",
                             message: aboutMessage
                         });
                     }
@@ -172,7 +173,7 @@ function makeMenu() { // credits to random
                 dialog.showMessageBox({
                     type: "info",
                     buttons: ["Ok"],
-                    title: "About Coastal Freeze",
+                    title: "About CPPSCreator",
                     message: aboutMessage
                 });
             }
