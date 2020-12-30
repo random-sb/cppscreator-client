@@ -1,6 +1,8 @@
 name: Build/release
 
-on: push
+on: 
+  schedule:
+    - cron: '0 12 * * *'
 
 jobs:
   release:
