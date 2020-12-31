@@ -61,12 +61,6 @@ function createWindow() {
     height: 840
     });
     makeMenu();
-    ipcMain.on('load:data', (event, mute, theme) => {
-        muted = (mute == 'true');
-		console.log(muted, typeof(muted))
-        nativeTheme.themeSource = theme;
-        win.webContents.audioMuted = muted;
-    });
     activateRPC();
 	
     win.loadURL('https://www.cppscreator.xyz/');
@@ -74,17 +68,17 @@ function createWindow() {
     Menu.setApplicationMenu(fsmenu);
 }
 
-//promopt
+//prompt
 function createPrompt() {
     pro = new BrowserWindow
     ({
-    title: "CPPSCreator",
-    webPreferences: {
-        plugins: true,
-        nodeIntegration: true
-    },
-    width: 470,
-    height: 122
+	    title: "CPPSCreator",
+	    webPreferences: {
+		plugins: true,
+		nodeIntegration: true
+	    },
+	    width: 470,
+	    height: 122
     });
     makeMenu();
 	
@@ -146,12 +140,6 @@ function makeMenu() { // credits to random
                     }
                 },
                 {
-                    label: 'Dark Mode (Toggle)',
-                    click: () => {
-                        darkMode()
-                    }
-                },
-                {
                     label: 'Visit CPPS code...',
                     click: () => {
                         createPrompt();
@@ -194,12 +182,6 @@ function makeMenu() { // credits to random
             }
         }));
         fsmenu.append(new MenuItem({
-            label: 'Dark Mode (Toggle)',
-            click: () => {
-                darkMode()
-            }
-        }));
-        fsmenu.append(new MenuItem({
             label: 'Log Out',
             click: () => {
                 clearCache();
@@ -214,17 +196,6 @@ function clearCache() {
     const ses = win.webContents.session;
     ses.clearCache(() => {});
 }
-
-function darkMode() {
-    if (nativeTheme.shouldUseDarkColors) {
-        nativeTheme.themeSource = 'light'
-    } else {
-        nativeTheme.themeSource = 'dark'
-    }
-    win.webContents.send('theme', nativeTheme.themeSource);
-    return nativeTheme.shouldUseDarkColors
-}
-
 
 ipcMain.on('cpps_code', (event, cppsCode) => {
     win.loadURL("https://play.cppscreator.xyz/embed/" + cppsCode);
