@@ -66,6 +66,10 @@ function createWindow() {
     win.loadURL('https://www.cppscreator.xyz/');
     autoUpdater.checkForUpdatesAndNotify();
     Menu.setApplicationMenu(fsmenu);
+	
+    win.on('closed', () => {
+    	win = null;
+    });
 }
 
 //prompt
@@ -179,6 +183,12 @@ function makeMenu() { // credits to random
             click: () => {
                 win.webContents.audioMuted = !win.webContents.audioMuted;
                 win.webContents.send('muted', win.webContents.audioMuted);
+            }
+        }));
+	fsmenu.append(new MenuItem({
+            label: 'Visit CPPS code...',
+            click: () => {
+                createPrompt();
             }
         }));
         fsmenu.append(new MenuItem({
