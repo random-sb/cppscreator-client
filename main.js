@@ -92,9 +92,8 @@ function createPrompt() {
 
 // start of menubar part
 
-const aboutMessage = `CPPS Creator Client v${app.getVersion()}
-Created by Random with much code provided by Allinol for use with Coastal Freeze.
-The purpose of CPPSCreator......`;
+const aboutMessage = `CPPSCreator v${app.getVersion()}
+Created by Random with much code provided by Allinol for use with Coastal Freeze.`;
 
 
 function activateRPC() { 
@@ -226,13 +225,34 @@ ipcMain.on('cpps_code', (event, cppsCode) => {
 //Auto update part
 
 autoUpdater.on('update-available', (updateInfo) => {
-    updateAv = true;
-    dialog.showMessageBox({
-          type: "info",
-          buttons: ["Ok"],
-          title: "Update Available",
-          message: "There is a new version available (v" + updateInfo.version + "). It will be installed when the app closes."
-   });
+	updateAv = true;
+	
+	switch (process.platform) {
+	case 'win32':
+	    dialog.showMessageBox({
+		  type: "info",
+		  buttons: ["Ok"],
+		  title: "Update Available",
+		  message: "There is a new version available (v" + updateInfo.version + "). It will be installed when the app closes."
+	    });
+	    break
+	case 'darwin':
+	    dialog.showMessageBox({
+		  type: "info",
+		  buttons: ["Ok"],
+		  title: "Update Available",
+		  message: "There is a new version available (v" + updateInfo.version + "). Please go install it manually from the website."
+	    });
+	    break
+	case 'linux':
+	    dialog.showMessageBox({
+		  type: "info",
+		  buttons: ["Ok"],
+		  title: "Update Available",
+		  message: "There is a new version available (v" + updateInfo.version + "). Auto-update has not been tested on this OS, so if after relaunching app this appears again, please go install it manually."
+	    });
+	    break
+	}
     //win.webContents.send('update_available', updateInfo.version);
 });
 
