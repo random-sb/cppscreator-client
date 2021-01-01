@@ -227,6 +227,12 @@ ipcMain.on('cpps_code', (event, cppsCode) => {
 
 autoUpdater.on('update-available', (updateInfo) => {
     updateAv = true;
+    dialog.showMessageBox({
+          type: "info",
+          buttons: ["Ok"],
+          title: "Update Available",
+          message: "There is a new version available (v" + updateInfo.version + "). It will be installed when the app closes."
+   });
     //win.webContents.send('update_available', updateInfo.version);
 });
 
