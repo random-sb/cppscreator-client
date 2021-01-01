@@ -1,6 +1,6 @@
 {
    "name": "cppscreatorclient",
-   "version": "0.8.0",
+   "version": "0.8.1",
    "description": "CPPS Creator Client",
    "productName": "CPPS Creator",
    "main": "main.js",
@@ -59,7 +59,7 @@
          ]
       }
    },
-   "author": "CPPS Creator <support@cppscreator.xyz> (https://cppscreator.xyz)",
+   "author": "CPPS Creator <rocket@rockets.chat> (https://cppscreator.xyz)",
    "license": "CC0-1.0",
    "devDependencies": {
       "electron": "^8.1.1",
