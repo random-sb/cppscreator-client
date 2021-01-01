@@ -154,7 +154,7 @@ function makeMenu() { // credits to random
                     label: 'Log Out',
                     click: () => {
                         clearCache();
-                        win.loadFile('index.html');
+                        win.loadURL('https://www.cppscreator.xyz/');
                     }
                 }
             ]
@@ -196,7 +196,7 @@ function makeMenu() { // credits to random
             label: 'Log Out',
             click: () => {
                 clearCache();
-                win.loadFile('index.html');
+                win.loadURL('https://www.cppscreator.xyz/');
             }
         }));
     }
