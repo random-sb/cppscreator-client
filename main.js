@@ -14,6 +14,7 @@ let rpc
 const {
     autoUpdater
 } = require('electron-updater');
+let updateAv = false;
 
 const path = require('path')
 
@@ -222,12 +223,14 @@ ipcMain.on('cpps_code', (event, cppsCode) => {
 
 // end of menubar
 
-/* Auto update part
+//Auto update part
 
 autoUpdater.on('update-available', (updateInfo) => {
-    win.webContents.send('update_available', updateInfo.version);
+    updateAv = true;
+    //win.webContents.send('update_available', updateInfo.version);
 });
 
+/*
 autoUpdater.on('update-downloaded', () => {
     win.webContents.send('update-downloaded');
 });
@@ -245,6 +248,7 @@ ipcMain.on('restart_app', () => {
 // end of Auto update part*/
 
 app.on('window-all-closed', () => {
+    if (updateAv) {autoUpdater.quitAndInstall();}
     if (process.platform !== 'darwin') {
         app.quit();
     }
