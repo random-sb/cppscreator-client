@@ -16,7 +16,8 @@ const {
 } = require('electron-updater');
 let updateAv = false;
 
-const path = require('path')
+const path = require('path');
+const aShell = require("shell");
 
 
 let pluginName
@@ -143,10 +144,22 @@ function makeMenu() { // credits to random
                     }
                 },
                 {
-                    label: 'Visit CPPS code...',
+                    label: 'Go to CPPS',
                     click: () => {
                         createPrompt();
                     }
+                },
+		{
+                    label: 'Buy Premium',
+            		click: () => {
+                		aShell.openExternal("https://panel.cppscreator.xyz/premium");
+           		}
+                },
+		{
+                    label: 'Join Discord',
+            		click: () => {
+                		aShell.openExternal("https://discord.gg/Hsy5Bc2");
+            		}
                 },
                 {
                     label: 'Log Out',
@@ -185,9 +198,21 @@ function makeMenu() { // credits to random
             }
         }));
 	fsmenu.append(new MenuItem({
-            label: 'Visit CPPS code...',
+            label: 'Go to CPPS',
             click: () => {
                 createPrompt();
+            }
+        }));
+	fsmenu.append(new MenuItem({
+            label: 'Buy Premium',
+            click: () => {
+                aShell.openExternal("https://panel.cppscreator.xyz/premium");
+            }
+        }));
+ 	fsmenu.append(new MenuItem({
+            label: 'Join Discord',
+            click: () => {
+                aShell.openExternal("https://discord.gg/Hsy5Bc2");
             }
         }));
         fsmenu.append(new MenuItem({
