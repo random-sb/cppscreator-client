@@ -104,7 +104,6 @@ function activateRPC() {
   rpc.on('ready', () => {
     rpc.setActivity({
       details: `www.cppscreator.xyz`, 
-      state: `Browsing CPPSes`, 
       startTimestamp, 
       largeImageKey: `main-logo`
     });
@@ -214,7 +213,7 @@ ipcMain.on('cpps_code', (event, cppsCode) => {
     const startTimestamp = new Date();
     rpc.setActivity({
         details: `www.cppscreator.xyz`, 
-        state: `Playing CPPS ID: ` + cppsCode, 
+        state: `Playing CPPS - ` + cppsCode, 
         startTimestamp, 
         largeImageKey: `main-logo`
     });
@@ -282,5 +281,13 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-  if (win === null) {createWindow();}
+  if (win === null) {
+	  createWindow();
+	  rpc.setActivity({
+      		details: `www.cppscreator.xyz`, 
+      		startTimestamp, 
+      		largeImageKey: `main-logo`
+	  });
+    });
+  }
 });
