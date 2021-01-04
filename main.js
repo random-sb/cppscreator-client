@@ -1,3 +1,8 @@
+autoUpdater.logger = require("electron-log")
+autoUpdater.logger.transports.file.level = "info"
+
+log.info('Hello, log world');
+
 const {
     app,
     dialog,
@@ -5,7 +10,8 @@ const {
     Menu,
     MenuItem,
     ipcMain,
-    nativeTheme
+    nativeTheme,
+    shell
 } = require('electron')
 
 const DiscordRPC = require('discord-rpc');
@@ -17,7 +23,6 @@ const {
 let updateAv = false;
 
 const path = require('path');
-const aShell = require("shell");
 
 
 let pluginName
@@ -72,6 +77,10 @@ function createWindow() {
     win.on('closed', () => {
     	win = null;
     });
+	
+	
+	
+    log.info('Window opened');
 }
 
 //prompt
@@ -152,13 +161,13 @@ function makeMenu() { // credits to random
 		{
                     label: 'Buy Premium',
             		click: () => {
-                		aShell.openExternal("https://panel.cppscreator.xyz/premium");
+                		shell.openExternal("https://panel.cppscreator.xyz/premium");
            		}
                 },
 		{
                     label: 'Join Discord',
             		click: () => {
-                		aShell.openExternal("https://discord.gg/Hsy5Bc2");
+                		shell.openExternal("https://discord.gg/Hsy5Bc2");
             		}
                 },
                 {
@@ -206,13 +215,13 @@ function makeMenu() { // credits to random
 	fsmenu.append(new MenuItem({
             label: 'Buy Premium',
             click: () => {
-                aShell.openExternal("https://panel.cppscreator.xyz/premium");
+                shell.openExternal("https://panel.cppscreator.xyz/premium");
             }
         }));
  	fsmenu.append(new MenuItem({
             label: 'Join Discord',
             click: () => {
-                aShell.openExternal("https://discord.gg/Hsy5Bc2");
+                shell.openExternal("https://discord.gg/Hsy5Bc2");
             }
         }));
         fsmenu.append(new MenuItem({
@@ -249,6 +258,8 @@ ipcMain.on('cpps_code', (event, cppsCode) => {
 //Auto update part
 
 autoUpdater.on('update-available', (updateInfo) => {
+	log.info('update available');
+	
 	switch (process.platform) {
 	case 'win32':
 	    dialog.showMessageBox({
