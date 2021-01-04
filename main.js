@@ -22,8 +22,6 @@ let updateAv = false;
 autoUpdater.logger = require("electron-log")
 autoUpdater.logger.transports.file.level = "info"
 
-log.info('Hello, log world');
-
 
 
 const path = require('path');
@@ -81,10 +79,6 @@ function createWindow() {
     win.on('closed', () => {
     	win = null;
     });
-	
-	
-	
-    log.info('Window opened');
 }
 
 //prompt
