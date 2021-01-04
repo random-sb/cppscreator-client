@@ -1,6 +1,6 @@
 {
    "name": "cppscreatorclient",
-   "version": "0.8.2",
+   "version": "0.5.0",
    "description": "CPPSCreator Client",
    "productName": "CPPSCreator",
    "main": "main.js",
@@ -66,6 +66,7 @@
       "electron-builder": "^22.9.1"
    },
    "dependencies": {
+      "electron-log": "^4.0.0",
       "electron-updater": "^4.3.2",
       "discord-rpc": "^3.1.4"
    }
