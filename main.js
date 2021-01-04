@@ -17,13 +17,6 @@ const {
 } = require('electron-updater');
 let updateAv = false;
 
-
-
-autoUpdater.logger = require("electron-log")
-autoUpdater.logger.transports.file.level = "info"
-
-
-
 const path = require('path');
 
 
