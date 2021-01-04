@@ -324,6 +324,5 @@ app.on('activate', () => {
       		startTimestamp, 
       		largeImageKey: `main-logo`
 	  });
-    });
   }
 });
