@@ -83,8 +83,8 @@ function createPrompt() {
 		plugins: true,
 		nodeIntegration: true
 	    },
-	    width: 370,
-	    height: 122
+	    width: 400,
+	    height: 180
     });
     makeMenu();
 	
