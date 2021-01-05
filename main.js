@@ -249,8 +249,6 @@ ipcMain.on('cpps_code', (event, cppsCode) => {
 //Auto update part
 
 autoUpdater.on('update-available', (updateInfo) => {
-	log.info('update available');
-	
 	switch (process.platform) {
 	case 'win32':
 	    dialog.showMessageBox({
