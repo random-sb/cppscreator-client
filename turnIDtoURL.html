@@ -1,0 +1,42 @@
+<title>CPPS Code</title>
+<link type="text/css" href="https://cppscreator.xyz/assets/css/bulma.min.css" rel="stylesheet" />
+<body style="text-align: center; padding: 20px;">
+  <p style="margin-bottom: 10px;">Please type in the CPPS ID that you want to play:</p>
+<div id="prompt">
+
+  <form>
+	<div class="field has-addons has-addons-centered">
+	  <div class="control">
+	    <input type="text" id="cppscode" class="input" />
+	  </div>
+	  <div class="control">
+	    <button class="button is-success" id="confirm-button" onClick="confirmNotification()">
+	      Go
+	    </button>
+	  </div>
+	</div>
+  </form>
+</div>
+</body>
+
+<style>
+@media (prefers-color-scheme: dark) {
+  body { background:  #333; color: white; }
+  #notification { background:  #333; color: white; }
+  object  { background:  #333; color: white; }
+}
+@media (prefers-color-scheme: light) {
+  body { background:  #ffffff; color: black; }
+  object  { background:  #ffffff; color: black; }
+  #notification { background:  #ffffff; color: black; }
+}
+</style>
+
+<script>
+const {ipcRenderer} = require('electron');
+const code = document.getElementById('cppscode');
+
+function confirmNotification() {
+  ipcRenderer.sendSync('cpps_code', code.value)
+}
+</script>
