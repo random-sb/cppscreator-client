@@ -310,6 +310,7 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   if (win === null) {
 	  createWindow();
+	  const startTimestamp = new Date();
 	  rpc.setActivity({
       		details: `www.cppscreator.xyz`, 
       		startTimestamp, 
