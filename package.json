@@ -1,6 +1,6 @@
 {
    "name": "cppscreatorclient",
-   "version": "0.9.4",
+   "version": "1.0.0",
    "description": "CPPSCreator Client",
    "productName": "CPPSCreator",
    "main": "main.js",
