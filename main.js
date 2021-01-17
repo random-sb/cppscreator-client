@@ -9,6 +9,8 @@ const {
     shell
 } = require('electron')
 
+const log = require('electron-log');
+
 const DiscordRPC = require('discord-rpc');
 let rpc
 
