@@ -76,6 +76,12 @@ function createWindow() {
 
 //prompt
 function createPrompt() {
+    //Check if window is already open
+    if (pro) { 
+       pro.focus();
+       return;
+    }
+	
     pro = new BrowserWindow
     ({
 	    title: "CPPSCreator",
@@ -89,6 +95,10 @@ function createPrompt() {
     makeMenu();
 	
     pro.loadFile('turnIDtoURL.html');
+	
+    pro.on('closed', () => {
+    	pro = null;
+    });
 }
 
 // start of menubar part
