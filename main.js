@@ -9,9 +9,6 @@ const {
     shell
 } = require('electron')
 
-const log = require('electron-log');
-log.transports.file.level = 'info';
-
 const DiscordRPC = require('discord-rpc');
 let rpc
 
@@ -60,7 +57,7 @@ function createWindow() {
     title: "CPPSCreator",
     webPreferences: {
         plugins: true,
-        nodeIntegration: true
+        nodeIntegration: false
     },
     width: 1385,
     height: 840
