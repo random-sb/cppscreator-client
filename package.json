@@ -63,7 +63,8 @@
    "license": "CC0-1.0",
    "devDependencies": {
       "electron": "^8.5.5,
-      "electron-builder": "^22.9.1"
+      "electron-builder": "^22.9.1",
+      "electron-log": "^4.3.1"
    },
    "dependencies": {
       "electron-updater": "^4.3.2",
