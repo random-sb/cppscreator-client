@@ -10,6 +10,7 @@ const {
 } = require('electron')
 
 const log = require('electron-log');
+log.transports.file.level = 'info';
 
 const DiscordRPC = require('discord-rpc');
 let rpc
