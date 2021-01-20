@@ -242,7 +242,7 @@ function clearCache() {
 }
 
 ipcMain.on('cpps_code', (event, cppsCode) => {
-    if (win == null) {
+    if (win === null) {
 	   createWindow();
     }
     win.loadURL("https://play.cppscreator.xyz/embed/" + cppsCode);
