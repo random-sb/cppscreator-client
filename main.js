@@ -39,6 +39,7 @@ case 'darwin':
     pluginName = 'flash/PepperFlashPlayer.plugin'
     break
 case 'linux':
+    app.commandLine.appendSwitch('no-sandbox')
     pluginName = 'flash/libpepflashplayer.so'
     break
 }
