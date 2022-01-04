@@ -66,7 +66,7 @@ function createWindow() {
     makeMenu();
     activateRPC();
 	
-    win.loadURL('https://www.cppscreator.xyz/');
+    win.loadURL('https://www.cppscreator.com/');
     autoUpdater.checkForUpdatesAndNotify();
     Menu.setApplicationMenu(fsmenu);
 	
@@ -115,7 +115,7 @@ function activateRPC() {
   const startTimestamp = new Date();
   rpc.on('ready', () => {
     rpc.setActivity({
-      details: `www.cppscreator.xyz`, 
+      details: `www.cppscreator.com`, 
       startTimestamp, 
       largeImageKey: `main-logo`
     });
@@ -163,7 +163,7 @@ function makeMenu() { // credits to random
 		{
                     label: 'Buy Premium',
             		click: () => {
-                		shell.openExternal("https://panel.cppscreator.xyz/premium");
+                		shell.openExternal("https://panel.cppscreator.com/premium");
            		}
                 },
 		{
@@ -176,7 +176,7 @@ function makeMenu() { // credits to random
                     label: 'Log Out',
                     click: () => {
                         clearCache();
-                        win.loadURL('https://www.cppscreator.xyz/');
+                        win.loadURL('https://www.cppscreator.com/');
                     }
                 }
             ]
@@ -217,7 +217,7 @@ function makeMenu() { // credits to random
 	fsmenu.append(new MenuItem({
             label: 'Buy Premium',
             click: () => {
-                shell.openExternal("https://panel.cppscreator.xyz/premium");
+                shell.openExternal("https://panel.cppscreator.com/premium");
             }
         }));
  	fsmenu.append(new MenuItem({
@@ -230,7 +230,7 @@ function makeMenu() { // credits to random
             label: 'Log Out',
             click: () => {
                 clearCache();
-                win.loadURL('https://www.cppscreator.xyz/');
+                win.loadURL('https://www.cppscreator.com/');
             }
         }));
     }
@@ -246,12 +246,12 @@ ipcMain.on('cpps_code', (event, cppsCode) => {
     if (win === null) {
 	   createWindow();
     }
-    win.loadURL("https://play.cppscreator.xyz/embed/" + cppsCode);
+    win.loadURL("https://play.cppscreator.com/embed/" + cppsCode);
     pro.close();
     pro = null;
     const startTimestamp = new Date();
     rpc.setActivity({
-        details: `www.cppscreator.xyz`, 
+        details: `www.cppscreator.com`, 
         state: `Playing CPPS - ` + cppsCode, 
         startTimestamp, 
         largeImageKey: `main-logo`
@@ -324,7 +324,7 @@ app.on('activate', () => {
 	  createWindow();
 	  const startTimestamp = new Date();
 	  rpc.setActivity({
-      		details: `www.cppscreator.xyz`, 
+      		details: `www.cppscreator.com`, 
       		startTimestamp, 
       		largeImageKey: `main-logo`
 	  });
